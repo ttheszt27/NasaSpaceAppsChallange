@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Countries Map</title>
-    <style>
-      #map {
-        height: 100vh; /* Full height */
-        width: 100%; /* Full width */
-      }
-    </style>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Countries Map</title>
+      <link rel="stylesheet" href="styles.css" />
+    </head>
   </head>
   <body>
+    <div id="header">
+      <h1>Interactive Country Map</h1>
+    </div>
+
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="50"
+        class="slider"
+        id="highlightColorblue"
+      />
+    </div>
+
     <div id="map"></div>
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjcMXch8OlDmGcNW0v_XU4LCI3ss87lJo&callback=initMap"
       async
       defer
     ></script>
     <script>
+      const countries_base = [
+        "HUN",
+        "SVK",
+        "ROU",
+        "POL",
+        "HRV",
+        "SRB",
+        "MNE",
+        "ALB",
+        "CZE",
+        "BGR",
+        "GRC",
+        "MKD",
+        "MDA",
+        "LTU",
+        "LVA",
+        "BIH",
+      ];
+
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 44.4268, lng: 26.1025 }, // Center of the map
@@ -29,20 +61,90 @@
         map.data.loadGeoJson("data/countries.geo.json"); // Adjust the path to your GeoJSON file
 
         // Style the GeoJSON layer
-        map.data.setStyle({
-          //fillColor: "lightblue", // Color for country areas
-          strokeWeight: 1, // Border weight
-          fillOpacity: 0.5, // Transparency
-        });
-
-        const highlightCountry = "ROU";
-        map.data.addListener("addfeature", function (event) {
-          if (event.feature.getId() === highlightCountry) {
-            map.data.overrideStyle(event.feature, {
-              fillColor: "orange",
-            });
+        map.data.setStyle((feature) => {
+          const countryId = feature.getId();
+          if (countries_base.includes(countryId)) {
+            return {
+              strokeWeight: 0.5, // Border weight
+              strokeColor: "black", // Border color
+              fillOpacity: 0, // No fill opacity initially
+            };
+          } else {
+            // Grey color for countries not in the array
+            return {
+              strokeWeight: 0.5,
+              strokeColor: "black",
+              fillColor: "rgb(67, 69, 69)",
+              fillOpacity: 0.7, // Fill opacity for grey countries
+            };
           }
         });
+
+        // Variable to hold the current highlighted country feature
+        let currentFeature = null;
+
+        // Event listener for click on country features
+        map.data.addListener("click", function (event) {
+          const countryId = event.feature.getId();
+          if (countries_base.includes(countryId)) {
+            /*if (currentFeature) {
+              // Reset the previously highlighted feature
+              map.data.overrideStyle(currentFeature, {
+                fillOpacity: 0, // Reset opacity
+              });
+            }*/
+            currentFeature = event.feature; // Update the current feature
+            updateHighlightColor(currentFeature); // Highlight the country
+          }
+        });
+
+        // Function to update highlight color based on the slider value
+        function updateHighlightColor(feature) {
+          const highlightColor =
+            "rgb(10,15," +
+            document.getElementById("highlightColorblue").value +
+            ")"; // Get the current color from the input
+          map.data.overrideStyle(feature, {
+            fillColor: highlightColor, // Highlight color for Romania
+            fillOpacity: 0.8, // Slightly transparent to see the borders
+          });
+        }
+
+        // Event listener for slider input changes
+        document
+          .getElementById("highlightColorblue")
+          .addEventListener("input", function () {
+            if (currentFeature) {
+              updateHighlightColor(currentFeature); // Update color of the currently highlighted country
+            }
+          });
+
+        /*const highlightCountry = "ROU";
+        map.data.addListener("addfeature", function (event) {
+          if (event.feature.getId() === highlightCountry) {
+            updateHighlightColor(event.feature);
+          }
+        });
+        function updateHighlightColor(feature) {
+          const highlightColor =
+            "rgb(10,15," +
+            document.getElementById("highlightColorblue").value +
+            ")"; // Get the current color from the input
+          map.data.overrideStyle(feature, {
+            fillColor: highlightColor, // Highlight color for Romania
+            fillOpacity: 0.8, // Slightly transparent to see the borders
+          });
+        }
+
+        document
+          .getElementById("highlightColorblue")
+          .addEventListener("input", function () {
+            // Find the feature again, assuming it was already added
+            const feature = map.data.getFeatureById(highlightCountry);
+            if (feature) {
+              updateHighlightColor(feature); // Update the highlight color on slider change
+            }
+          });*/
       }
     </script>
   </body>
