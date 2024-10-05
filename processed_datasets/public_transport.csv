@@ -1,0 +1,179 @@
+,ISO3,country,pct
+0,AFG        ,Afghanistan                      ,18.970750976224505
+1,AGO        ,Angola                           ,13.062264184497796
+2,ALB        ,Albania                          ,65.66036216963283
+3,ARE        ,United Arab Emirates             ,25.68062623966046
+4,ARG        ,Argentina                        ,61.42960456194573
+5,ARM        ,Armenia                          ,72.48526849122096
+6,AUS        ,Australia                        ,72.19541391583665
+7,AUT        ,Austria                          ,97.29326039237294
+8,AZE        ,Azerbaijan                       ,40.893513039200094
+9,BDI        ,Burundi                          ,0.8749457559840998
+10,BEL        ,Belgium                          ,94.6124559227567
+11,BEN        ,Benin                            ,10.87646298093284
+12,BFA        ,Burkina Faso                     ,45.113220401826496
+13,BGD        ,Bangladesh                       ,20.531594459534436
+14,BGR        ,Bulgaria                         ,69.5072419812998
+15,BHR        ,Bahrain                          ,14.40001333105073
+16,BHS        ,Bahamas                          ,4.202012918653582
+17,BIH        ,Bosnia and Herzegovina           ,47.59862749381722
+18,BLR        ,Belarus                          ,88.77927644675093
+19,BLZ        ,Belize                           ,24.469967307890634
+20,BOL        ,Bolivia                          ,33.80449842084271
+21,BRA        ,Brazil                           ,49.37752839550215
+22,BRB        ,Barbados                         ,49.774571022474774
+23,BRN        ,Brunei                           ,13.843093380761992
+24,BTN        ,Bhutan                           ,62.008486336450844
+25,BWA        ,Botswana                         ,7.966531516087143
+26,CAF        ,Central African Republic         ,1.1005281523497092
+27,CAN        ,Canada                           ,79.01069027477338
+28,CHE        ,Switzerland                      ,97.86609570905523
+29,CHL        ,Chile                            ,45.78555877922559
+30,CHN        ,China                            ,43.447726204973215
+31,CIV        ,Côte d'Ivoire                    ,65.6635865180618
+32,CMR        ,Cameroon                         ,5.037262820266973
+33,COD        ,Democratic Republic of the Congo ,7.478918693249008
+34,COG        ,Republic of Congo                ,1.9321261234993918
+35,COL        ,Colombia                         ,36.59996034534551
+36,COM        ,Comoros                          ,22.63890052584298
+37,CPV        ,Cape Verde                       ,75.75069475302952
+38,CRI        ,Costa Rica                       ,40.720727302790756
+39,CUB        ,Cuba                             ,57.334267602877986
+40,CUW        ,Curaçao                          ,77.44931667340981
+41,CYP        ,Cyprus                           ,47.18168813281171
+42,CZE        ,Czech Republic                   ,95.45437440351637
+43,DEU        ,Germany                          ,94.45232570307307
+44,DJI        ,Djibouti                         ,8.695657477416146
+45,DNK        ,Denmark                          ,92.70646867840358
+46,DOM        ,Dominican Republic               ,17.31038776054703
+47,DZA        ,Algeria                          ,40.87815707887486
+48,ECU        ,Ecuador                          ,43.45990179406769
+49,EGY        ,Egypt                            ,22.66980942266179
+50,ERI        ,Eritrea                          ,13.521788494904662
+51,ESP        ,Spain                            ,90.58655618269114
+52,EST        ,Estonia                          ,97.29573048163122
+53,ETH        ,Ethiopia                         ,62.76219499483149
+54,FIN        ,Finland                          ,95.71277112992048
+55,FJI        ,Fiji                             ,63.91090345966981
+56,FRA        ,France                           ,97.46779705030441
+57,GAB        ,Gabon                            ,7.529023709177461
+58,GBR        ,United Kingdom                   ,87.61944789817349
+59,GEO        ,Georgia                          ,49.5679574438176
+60,GHA        ,Ghana                            ,35.265814581061235
+61,GIN        ,Guinea                           ,17.74037730144972
+62,GMB        ,Gambia                           ,5.772905363723261
+63,GNB        ,Guinea-Bissau                    ,0.07595200986011436
+64,GNQ        ,Equatorial Guinea                ,12.967655024711386
+65,GRC        ,Greece                           ,95.00877875980245
+66,GTM        ,Guatemala                        ,15.467543235065436
+67,HND        ,Honduras                         ,8.807537420798884
+68,HRV        ,Croatia                          ,86.95413485441311
+69,HTI        ,Haiti                            ,7.7097576875986045
+70,HUN        ,Hungary                          ,97.95157532874865
+71,IDN        ,Indonesia                        ,13.176364460629674
+72,IND        ,India                            ,28.608420635553987
+73,IRL        ,Ireland                          ,97.7486096153459
+74,IRN        ,Iran                             ,43.11334931318604
+75,IRQ        ,Iraq                             ,3.35446253564793
+76,ISL        ,Iceland                          ,94.94821035412681
+77,ISR        ,Israel                           ,92.44564221569719
+78,ITA        ,Italy                            ,79.70055973701943
+79,JAM        ,Jamaica                          ,7.80665949448775
+80,JOR        ,Jordan                           ,5.83845426572741
+81,JPN        ,Japan                            ,75.81515156187504
+82,KAZ        ,Kazakhstan                       ,27.28532668659141
+83,KEN        ,Kenya                            ,18.24073518565038
+84,KGZ        ,Kyrgyzstan                       ,40.8328862989318
+85,KHM        ,Cambodia                         ,41.33604225097938
+86,KOR        ,South Korea                      ,75.72574514551792
+87,KWT        ,Kuwait                           ,3.2710822847720955
+88,LAO        ,Laos                             ,28.771419397224605
+89,LBN        ,Lebanon                          ,11.246647892199393
+90,LBR        ,Liberia                          ,1.2705079435006352
+91,LBY        ,Libya                            ,11.11022377560821
+92,LKA        ,Sri Lanka                        ,17.024217214208733
+93,LSO        ,Lesotho                          ,13.81408923629846
+94,LTU        ,Lithuania                        ,85.72872118754879
+95,LUX        ,Luxembourg                       ,99.52692340022693
+96,LVA        ,Latvia                           ,87.10312129293457
+97,MAR        ,Morocco                          ,47.67939633735847
+98,MDA        ,Moldova                          ,67.4221483862578
+99,MDG        ,Madagascar                       ,47.0401951091782
+100,MDV        ,Maldives                         ,99.99854525806437
+101,MEX        ,Mexico                           ,18.9520338885062
+102,MKD        ,Macedonia                        ,34.69354821864698
+103,MLI        ,Mali                             ,70.14999466635089
+104,MLT        ,Malta                            ,81.27410599772575
+105,MMR        ,Myanmar                          ,35.87478926880227
+106,MNE        ,Montenegro                       ,88.3611908720661
+107,MNG        ,Mongolia                         ,20.036010700236197
+108,MOZ        ,Mozambique                       ,59.12469345167478
+109,MRT        ,Mauritania                       ,33.16388447478596
+110,MUS        ,Mauritius                        ,42.98199303966939
+111,MWI        ,Malawi                           ,5.899068564579232
+112,MYS        ,Malaysia                         ,46.57505110588021
+113,NAM        ,Namibia                          ,76.6529701080187
+114,NCL        ,New Caledonia                    ,93.67528637090658
+115,NER        ,Niger                            ,19.570532691401624
+116,NGA        ,Nigeria                          ,5.934273515432616
+117,NIC        ,Nicaragua                        ,66.80985391611657
+118,NLD        ,Netherlands                      ,89.7656534808516
+119,NOR        ,Norway                           ,84.51308915384226
+120,NPL        ,Nepal                            ,16.692427944136753
+121,NZL        ,New Zealand                      ,76.9351899490372
+122,OMN        ,Oman                             ,1.918498823710001
+123,PAK        ,Pakistan                         ,10.935731638279092
+124,PAN        ,Panama                           ,39.085277902939524
+125,PER        ,Peru                             ,31.739559874002033
+126,PHL        ,Philippines                      ,32.67882180527093
+127,PNG        ,Papua New Guinea                 ,19.67016797445505
+128,POL        ,Poland                           ,91.24973113620517
+129,PRI        ,Puerto Rico                      ,30.074541910579338
+130,PRK        ,North Korea                      ,35.06185693894124
+131,PRT        ,Portugal                         ,84.72331267767589
+132,PRY        ,Paraguay                         ,21.565542054750438
+133,PSE        ,Palestina                        ,23.636720082898517
+134,PYF        ,French Polynesia                 ,54.014658061251595
+135,QAT        ,Qatar                            ,13.259166141257042
+136,ROU        ,Romania                          ,55.878971723830404
+137,RUS        ,Russia                           ,76.50952469621541
+138,RWA        ,Rwanda                           ,53.53881035109775
+139,SAU        ,Saudi Arabia                     ,10.35584362104816
+140,SDN        ,Sudan                            ,13.954135621970204
+141,SEN        ,Senegal                          ,47.491560870691515
+142,SGP        ,Singapore                        ,96.25533273391666
+143,SLB        ,Solomon Islands                  ,4.257451112477481
+144,SLE        ,Sierra Leone                     ,7.669703621874276
+145,SLV        ,El Salvador                      ,15.243824548187096
+146,SOM        ,Somalia                          ,4.366616160789976
+147,SRB        ,Serbia                           ,83.55337830350979
+148,SSD        ,South Sudan                      ,2.7825690324922854
+149,STP        ,São Tomé and Príncipe            ,43.69118821204614
+150,SUR        ,Suriname                         ,4.506307661803177
+151,SVK        ,Slovakia                         ,90.9421420597425
+152,SVN        ,Slovenia                         ,92.4538970804052
+153,SWE        ,Sweden                           ,86.92106866721203
+154,SWZ        ,Swaziland                        ,10.069876642607046
+155,SYR        ,Syria                            ,12.376789650533105
+156,TCD        ,Chad                             ,9.228423461696323
+157,TGO        ,Togo                             ,37.74155896878303
+158,THA        ,Thailand                         ,34.813566484939216
+159,TJK        ,Tajikistan                       ,23.026450103447655
+160,TKM        ,Turkmenistan                     ,49.37137848733036
+161,TLS        ,Timor-Leste                      ,2.3555535114085946
+162,TTO        ,Trinidad and Tobago              ,5.830707289813752
+163,TUN        ,Tunisia                          ,39.49949185142322
+164,TUR        ,Turkey                           ,51.81518310840756
+165,TWN        ,Taiwan                           ,89.48185591510646
+166,TZA        ,Tanzania                         ,12.939009292376028
+167,UGA        ,Uganda                           ,6.428837948203518
+168,UKR        ,Ukraine                          ,72.78323790201176
+169,URY        ,Uruguay                          ,90.58823240924343
+170,USA        ,United States                    ,39.457843641358714
+171,UZB        ,Uzbekistan                       ,12.846871156263742
+172,VEN        ,Venezuela                        ,22.22609224341366
+173,VNM        ,Vietnam                          ,37.549062246643324
+174,YEM        ,Yemen                            ,6.056326903878484
+175,ZAF        ,South Africa                     ,22.499595216474297
+176,ZMB        ,Zambia                           ,5.123009439477755
+177,ZWE        ,Zimbabwe                         ,2.2473556292702894
