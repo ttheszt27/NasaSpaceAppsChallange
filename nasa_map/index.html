@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries Map</title>
+    <style>
+      #map {
+        height: 100vh; /* Full height */
+        width: 100%; /* Full width */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjcMXch8OlDmGcNW0v_XU4LCI3ss87lJo&callback=initMap"
+      async
+      defer
+    ></script>
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 44.4268, lng: 26.1025 }, // Center of the map
+          zoom: 5, // Global view
+        });
+
+        // Load the GeoJSON data for countries
+        map.data.loadGeoJson("data/countries.geo.json"); // Adjust the path to your GeoJSON file
+
+        // Style the GeoJSON layer
+        map.data.setStyle({
+          //fillColor: "lightblue", // Color for country areas
+          strokeWeight: 1, // Border weight
+          fillOpacity: 0.5, // Transparency
+        });
+
+        const highlightCountry = "ROU";
+        map.data.addListener("addfeature", function (event) {
+          if (event.feature.getId() === highlightCountry) {
+            map.data.overrideStyle(event.feature, {
+              fillColor: "orange",
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
