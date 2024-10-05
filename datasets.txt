@@ -1,0 +1,29 @@
+Poverty Mapping
+https://data.nasa.gov/dataset/Poverty-Mapping-Project-Small-Area-Estimates-of-Po/tgyd-7wt7/about_data
+
+Német orvosi ellátás
+https://www.doctolib.de/
+
+Life expectancy + Human Development Groups + HDI Rank + UNDP Development Region 
+https://www.kaggle.com/datasets/iamsouravbanerjee/life-expectancy-at-birth-across-the-globe
+
+Student performance stats:
+https://www.kaggle.com/datasets/lainguyn123/student-performance-factors
+
+Heart Attack rates
+https://www.kaggle.com/datasets/iamsouravbanerjee/heart-attack-prediction-dataset
+
+Cause of Deaths
+https://www.kaggle.com/datasets/iamsouravbanerjee/cause-of-deaths-around-the-world
+
+Cost of Living index
+https://www.kaggle.com/datasets/myrios/cost-of-living-index-by-country-by-number-2024
+
+Cause of Deaths II
+https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Causes_of_death_statistics
+
+Cost of Living II.
+https://www.kaggle.com/datasets/myrios/cost-of-living-index-by-country-by-number-2024
+
+Physicians + Nurses + Alcohol consumption + Hospital Beds + Maternal deaths / capita
+https://data.worldbank.org/indicator/SH.MED.PHYS.ZS
