@@ -1,193 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+
   <head>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Countries Map</title>
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous"
-      />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-      <link rel="stylesheet" href="index.css" />
-    </head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="index.css" />
   </head>
+</head>
 
-  <body>
-    <div class="grid-container">
-      <div class="header inline-container">
-        <div id="header">
-          <h1>NMiMi</h1>
-        </div>
-        <div class="">
-          <img src="/NasaSpaceAppsChallange/logo.png" alt="NASA" />
-        </div>
-      </div>
-      <div class="sidebar">
-        <h2>Please select the country on the map to see it's condition</h2>
-        <ul>
-          <li>
-            <a href="#home">Főoldal</a>
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="50"
-                class="slider"
-                id="myRange"
-              />
-            </div>
-          </li>
-          <li>
-            <a href="#about">Rólunk</a>
+<body>
 
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="50"
-                class="slider"
-                id="myRange"
-              />
-            </div>
-          </li>
-          <li>
-            <a href="#services">Szolgáltatások</a>
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="50"
-                class="slider"
-                id="myRange"
-              />
-            </div>
-          </li>
-          <li>
-            <a href="#contact">Kapcsolat</a>
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="50"
-                class="slider"
-                id="highlightColorblue"
-              />
-            </div>
-          </li>
-        </ul>
+  <script>
+    fetch("export_data.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Find Albania's data
+        const albaniaData = data.data.find(
+          (country) => country.Country === "Albania"
+        );
+        const BosniaData = data.data.find(
+          (country) => country.Country === "Bosnia and Herzegovina"
+        );
+        const BulgariaData = data.data.find(
+          (country) => country.Country === "Bulgaria"
+        );
+        const CroatiaData = data.data.find(
+          (country) => country.Country === "Croatia"
+        );
+        const GreeceData = data.data.find(
+          (country) => country.Country === "Greece"
+        );
+        const HungaryData = data.data.find(
+          (country) => country.Country === "Hungary"
+        );
+        const LatviaData = data.data.find(
+          (country) => country.Country === "Latvia"
+        );
+        const LithuaniaData = data.data.find(
+          (country) => country.Country === "Lithuania"
+        );
+        const MoldovaData = data.data.find(
+          (country) => country.Country === "Moldova"
+        );
+        const MontenegroData = data.data.find(
+          (country) => country.Country === "Montenegro"
+        );
+        const NorthMacedoniaData = data.data.find(
+          (country) => country.Country === "North Macedonia"
+        );
+        const PolandData = data.data.find(
+          (country) => country.Country === "Poland"
+        );
+        const RomaniaData = data.data.find(
+          (country) => country.Country === "Romania"
+        );
+        const SerbiaData = data.data.find(
+          (country) => country.Country === "Serbia"
+        );
+        const SlovakiaData = data.data.find(
+          (country) => country.Country === "Slovakia"
+        );
+      })
+      .catch((error) => console.error("Error fetching JSON:", error));
+  </script>
+
+  <div class="grid-container">
+    <div class="header inline-container">
+      <div id="header">
+        <p><img src="./NMiMi.png" alt=""></p>
       </div>
-      <div class="main">
-        <div id="map" class="map"></div>
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjcMXch8OlDmGcNW0v_XU4LCI3ss87lJo&callback=initMap"
-          async
-          defer
-        ></script>
+      <div class="logo">
+        <img src="./nasaspaceappschallenge_logo.png" id="height" alt="NASA" />
+      </div>
+    </div>
+    <div class="sidebar">
+      <h2>Please select the country on the map to see it's condition</h2>
+
+      <div class="slidecontainercontainer">
+        <a href="#home">CO2 EMISSION</a>
+
+        <div class="slidecontainer">
+
+          <label for="ValueCO2">Current Value:</label>
+          <input type="text" id="ValueCO2" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="CO2" />
+
+        </div>
         <script>
-          const countries_base = [
-            "HUN",
-            "SVK",
-            "ROU",
-            "POL",
-            "HRV",
-            "SRB",
-            "MNE",
-            "ALB",
-            "CZE",
-            "BGR",
-            "GRC",
-            "MKD",
-            "MDA",
-            "LTU",
-            "LVA",
-            "BIH",
-          ];
+          // Get the slider and input field elements
+          const sliderCO2 = document.getElementById('CO2');
+          const currentValueCO2 = document.getElementById('ValueCO2');
 
-          function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
-              center: { lat: 44.4268, lng: 26.1025 }, // Center of the map
-              zoom: 5, // Global view
-            });
+          // Update the input field with the current slider value
+          sliderCO2.addEventListener('input', function () {
+            currentValueCO2.value = sliderCO2.value;
+          });
+        </script>
+      </div>
+      <div class="slidecontainercontainer">
+        <a href="#home">GROSS PRIMARY EDUCATION ENROLLMENT</a>
+        <div class="slidecontainer">
 
-            // Load the GeoJSON data for countries
-            map.data.loadGeoJson("data/countries.geo.json"); // Adjust the path to your GeoJSON file
+          <label for="ValueGPEE">Current Value:</label>
+          <input type="text" id="ValueGPEE" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="GPEE" />
 
-            // Style the GeoJSON layer
-            map.data.setStyle((feature) => {
-              const countryId = feature.getId();
-              if (countries_base.includes(countryId)) {
-                return {
-                  strokeWeight: 0.5, // Border weight
-                  strokeColor: "black", // Border color
-                  fillOpacity: 0, // No fill opacity initially
-                };
-              } else {
-                // Grey color for countries not in the array
-                return {
-                  strokeWeight: 0.5,
-                  strokeColor: "black",
-                  fillColor: "rgb(67, 69, 69)",
-                  fillOpacity: 0.7, // Fill opacity for grey countries
-                };
-              }
-            });
+        </div>
+        <script>
+          // Get the slider and input field elements
+          const sliderGPEE = document.getElementById('GPEE');
+          const currentValueGPEE = document.getElementById('ValueGPEE');
 
-            // Variable to hold the current highlighted country feature
-            let currentFeature = null;
+          // Update the input field with the current slider value
+          sliderGPEE.addEventListener('input', function () {
+            currentValueGPEE.value = sliderGPEE.value;
+          });
+        </script>
 
-            // Event listener for click on country features
-            map.data.addListener("click", function (event) {
-              const countryId = event.feature.getId();
-              if (countries_base.includes(countryId)) {
-                /*if (currentFeature) {
-                  // Reset the previously highlighted feature
-                  map.data.overrideStyle(currentFeature, {
-                    fillOpacity: 0, // Reset opacity
-                  });
-                }*/
-                currentFeature = event.feature; // Update the current feature
-                updateHighlightColor(currentFeature); // Highlight the country
-              }
-            });
+      </div>
+      <div class="slidecontainercontainer">
+        <a href="#home">GROSS TERTIARY EDUCATION ENROLLMENT</a>
 
-            // Function to update highlight color based on the slider value
-            function updateHighlightColor(feature) {
-              const highlightColor =
-                "rgb(10,15," +
-                document.getElementById("highlightColorblue").value +
-                ")"; // Get the current color from the input
-              map.data.overrideStyle(feature, {
-                fillColor: highlightColor, // Highlight color for Romania
-                fillOpacity: 0.8, // Slightly transparent to see the borders
-              });
-            }
+        <div class="slidecontainer">
 
-            // Event listener for slider input changes
-            document
-              .getElementById("highlightColorblue")
-              .addEventListener("input", function () {
-                if (currentFeature) {
-                  updateHighlightColor(currentFeature); // Update color of the currently highlighted country
-                }
-              });
-          }
+          <label for="ValueGTEE">Current Value:</label>
+          <input type="text" id="ValueGTEE" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="GTEE" />
+
+        </div>
+        <script>
+          // Get the slider and input field elements
+          const sliderGTEE = document.getElementById('GTEE');
+          const currentValueGTEE = document.getElementById('ValueGTEE');
+
+          // Update the input field with the current slider value
+          sliderGTEE.addEventListener('input', function () {
+            currentValueGTEE.value = sliderGTEE.value;
+          });
+        </script>
+      </div>
+      <div class="slidecontainercontainer">
+        <a href="#home">INFANT MORTALITY </a>
+
+        <div class="slidecontainer">
+
+          <label for="ValueIM">Current Value:</label>
+          <input type="text" id="ValueIM" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="IM" />
+
+        </div>
+        <script>
+          // Get the slider and input field elements
+          const sliderIM = document.getElementById('IM');
+          const currentValueIM = document.getElementById('ValueIM');
+
+          // Update the input field with the current slider value
+          sliderIM.addEventListener('input', function () {
+            currentValueIM.value = sliderIM.value;
+          });
+        </script>
+      </div>
+      <div class="slidecontainercontainer">
+        <a href="#home">INFANT MORTALITY RATIO</a>
+
+        <div class="slidecontainer">
+
+          <label for="ValueIMR">Current Value:</label>
+          <input type="text" id="ValueIMR" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="IMR" />
+
+        </div>
+        <script>
+          // Get the slider and input field elements
+          const sliderIMR = document.getElementById('IMR');
+          const currentValueIMR = document.getElementById('ValueIMR');
+
+          // Update the input field with the current slider value
+          sliderIMR.addEventListener('input', function () {
+            currentValueIMR.value = sliderIMR.value;
+          });
+        </script>
+      </div>
+      <div class="slidecontainercontainer">
+        <a href="#home">PHYSICIANTS PER THOUSAND</a>
+
+        <div class="slidecontainer">
+
+          <label for="ValuePPT">Current Value:</label>
+          <input type="text" id="ValuePPT" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="PPT" />
+
+        </div>
+        <script>
+          // Get the slider and input field elements
+          const sliderPPT = document.getElementById('PPT');
+          const currentValuePPT = document.getElementById('ValuePPT');
+
+          // Update the input field with the current slider value
+          sliderPPT.addEventListener('input', function () {
+            currentValuePPT.value = sliderPPT.value;
+          });
+        </script>
+      </div>
+      <div class="slidecontainercontainer">
+        <a href="#home">LIFE EXPENTANCY </a>
+
+        <div class="slidecontainer">
+
+          <label for="ValueLE">Current Value:</label>
+          <input type="text" id="ValueLE" value="0" readonly>
+          <input type="range" min="0" max="100" value="0" class="slider" id="LE" />
+
+        </div>
+        <script>
+          // Get the slider and input field elements
+          const sliderLE = document.getElementById('LE');
+          const currentValueLE = document.getElementById('ValueLE');
+
+          // Update the input field with the current slider value
+          sliderLE.addEventListener('input', function () {
+            currentValueLE.value = sliderLE.value;
+          });
         </script>
       </div>
     </div>
+ 
+    <div class="main">
+      <div id="map" class="map"></div>
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjcMXch8OlDmGcNW0v_XU4LCI3ss87lJo&callback=initMap"
+        async
+        defer
+      ></script>
+      <script>
+        const countries_base = [
+          "HUN",
+          "SVK",
+          "ROU",
+          "POL",
+          "HRV",
+          "SRB",
+          "MNE",
+          "ALB",
+          "CZE",
+          "BGR",
+          "GRC",
+          "MKD",
+          "MDA",
+          "LTU",
+          "LVA",
+          "BIH",
+        ];
 
-    <div class="footer">Lábléc</div>
-  </body>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"
-  ></script>
+        function initMap() {
+          const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 44.4268, lng: 26.1025 }, // Center of the map
+            zoom: 5, // Global view
+          });
+
+          // Load the GeoJSON data for countries
+          map.data.loadGeoJson("data/countries.geo.json"); // Adjust the path to your GeoJSON file
+
+          const getColor = (value) => {
+            if (value === null) return "rgb(128, 128, 128)"; // Grey for null values
+            const min = 71.8; // Replace with your actual min
+            const max = 81.3; // Replace with your actual max
+            const r = Math.round(255 * (1 - (value - min) / (max - min)));
+            const g = Math.round(255 * ((value - min) / (max - min)));
+            return `rgb(${r}, ${g}, 0)`; // Green to red
+          };
+
+          map.data.setStyle((feature) => {
+            const countryId = feature.getId();
+
+            if (countries_base.includes(countryId)) {
+              // Assign colors based on country ID
+              let fillColor = "rgb(255, 255, 255)"; // Default to white or any color
+
+              switch (countryId) {
+                case "BIH": // Bosnina
+                  fillColor = getColor(77.3); // Example value for Czech Republic
+                  break;
+                case "ALB": // Albania
+                  fillColor = getColor(78.5); // Example value for Czech Republic
+                  break;
+                case "BGR": // Bulgaria
+                  fillColor = getColor(74.9); // Example value for Czech Republic
+                  break;
+                case "HRV": // Croatia
+                  fillColor = getColor(78.1); // Example value for Czech Republic
+                  break;
+                case "GRC": // Greece
+                  fillColor = getColor(81.3); // Example value for Czech Republic
+                  break;
+                case "HUN": // Magyaro
+                  fillColor = getColor(75.8); // Example value for Czech Republic
+                  break;
+                case "LVA": // Latvia
+                  fillColor = getColor(74.7); // Example value for Czech Republic
+                  break;
+                case "LTU": // Litvania
+                  fillColor = getColor(75.7); // Example value for Czech Republic
+                  break;
+                case "MDA": // Moldova
+                  fillColor = getColor(71.8); // Example value for Czech Republic
+                  break;
+                case "MNE": // Montenegro
+                  fillColor = getColor(76.8); // Example value for Czech Republic
+                  break;
+                case "MKD": // North Macedonia
+                  fillColor = getColor(null); // Example value for Czech Republic
+                  break;
+                case "POL": // Poland
+                  fillColor = getColor(77.6); // Example value for Czech Republic
+                  break;
+                case "ROU": // Romania
+                  fillColor = getColor(75.4); // Example value for Czech Republic
+                  break;
+                case "SRB": // Serbia
+                  fillColor = getColor(75.5); // Example value for Czech Republic
+                  break;
+                case "SVK": // Slovakia
+                  fillColor = getColor(77.2); // Example value for Czech Republic
+                  break;
+                case "CZE": // Chec Repul
+                  fillColor = getColor(null); // Example value for Czech Republic
+                  break;
+                // Add more cases for other countries as needed
+              }
+
+              return {
+                strokeWeight: 0.5,
+                strokeColor: "black",
+                fillColor: fillColor,
+                fillOpacity: 0.7, // Opacity for colored countries
+              };
+            } else {
+              // Grey color for countries not in the array
+              return {
+                strokeWeight: 0.5,
+                strokeColor: "black",
+                fillColor: "rgb(67, 69, 69)",
+                fillOpacity: 0.7, // Fill opacity for grey countries
+              };
+            }
+          });
+          console.log(feature);
+          // Variable to hold the current highlighted country feature
+          let currentFeature = null;
+
+          // Event listener for click on country features
+          map.data.addListener("click", function (event) {
+            const countryId = event.feature.getId();
+            if (countries_base.includes(countryId)) {
+              /*if (currentFeature) {
+                // Reset the previously highlighted feature
+                map.data.overrideStyle(currentFeature, {
+                  fillOpacity: 0, // Reset opacity
+                });
+              }*/
+              currentFeature = event.feature; // Update the current feature
+              updateHighlightColor(currentFeature); // Highlight the country
+            }
+          });
+
+          // Function to update highlight color based on the slider value
+          function updateHighlightColor(feature) {
+            const highlightColor =
+              "rgb(10,15," +
+              document.getElementById("highlightColorblue").value +
+              ")"; // Get the current color from the input
+            map.data.overrideStyle(feature, {
+              fillColor: highlightColor, // Highlight color for Romania
+              fillOpacity: 0.8, // Slightly transparent to see the borders
+            });
+          }
+
+          // Event listener for slider input changes
+          document
+            .getElementById("highlightColorblue")
+            .addEventListener("input", function () {
+              if (currentFeature) {
+                updateHighlightColor(currentFeature); // Update color of the currently highlighted country
+              }
+            });
+        }
+      </script>
+    </div>
+  </div>
+  
+
+ 
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>
