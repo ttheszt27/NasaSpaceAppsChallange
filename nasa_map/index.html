@@ -17,6 +17,24 @@
   </head>
 
   <body>
+    <script>
+      fetch("export_data.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Log the JSON data to the console
+          console.log(data);
+        })
+        .catch((error) =>
+          console.error("There was a problem with the fetch operation:", error)
+        );
+    </script>
     <div class="grid-container">
       <div class="header inline-container">
         <div id="header">

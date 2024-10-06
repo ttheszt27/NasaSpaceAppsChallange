@@ -1,8 +1,12 @@
 Poverty Mapping
 https://data.nasa.gov/dataset/Poverty-Mapping-Project-Small-Area-Estimates-of-Po/tgyd-7wt7/about_data
 
+- nincs benne a célterület
+
 Német orvosi ellátás
 https://www.doctolib.de/
+
+- csak minta: online foglalás, hol mikor vann leghamarabb szakterület alapján
 
 Life expectancy + Human Development Groups + HDI Rank + UNDP Development Region 
 https://www.kaggle.com/datasets/iamsouravbanerjee/life-expectancy-at-birth-across-the-globe
