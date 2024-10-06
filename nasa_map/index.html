@@ -5,147 +5,189 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Countries Map</title>
-      <link rel="stylesheet" href="styles.css" />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+      />
+
+      <link rel="stylesheet" href="index.css" />
     </head>
   </head>
+
   <body>
-    <div id="header">
-      <h1>Interactive Country Map</h1>
-    </div>
+    <div class="grid-container">
+      <div class="header inline-container">
+        <div id="header">
+          <h1>NMiMi</h1>
+        </div>
+        <div class="">
+          <img src="/NasaSpaceAppsChallange/logo.png" alt="NASA" />
+        </div>
+      </div>
+      <div class="sidebar">
+        <h2>Please select the country on the map to see it's condition</h2>
+        <ul>
+          <li>
+            <a href="#home">Főoldal</a>
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+          </li>
+          <li>
+            <a href="#about">Rólunk</a>
 
-    <div class="slidecontainer">
-      <input
-        type="range"
-        min="1"
-        max="100"
-        value="50"
-        class="slider"
-        id="highlightColorblue"
-      />
-    </div>
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+          </li>
+          <li>
+            <a href="#services">Szolgáltatások</a>
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+          </li>
+          <li>
+            <a href="#contact">Kapcsolat</a>
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="highlightColorblue"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="main">
+        <div id="map" class="map"></div>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjcMXch8OlDmGcNW0v_XU4LCI3ss87lJo&callback=initMap"
+          async
+          defer
+        ></script>
+        <script>
+          const countries_base = [
+            "HUN",
+            "SVK",
+            "ROU",
+            "POL",
+            "HRV",
+            "SRB",
+            "MNE",
+            "ALB",
+            "CZE",
+            "BGR",
+            "GRC",
+            "MKD",
+            "MDA",
+            "LTU",
+            "LVA",
+            "BIH",
+          ];
 
-    <div id="map"></div>
+          function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+              center: { lat: 44.4268, lng: 26.1025 }, // Center of the map
+              zoom: 5, // Global view
+            });
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjcMXch8OlDmGcNW0v_XU4LCI3ss87lJo&callback=initMap"
-      async
-      defer
-    ></script>
-    <script>
-      const countries_base = [
-        "HUN",
-        "SVK",
-        "ROU",
-        "POL",
-        "HRV",
-        "SRB",
-        "MNE",
-        "ALB",
-        "CZE",
-        "BGR",
-        "GRC",
-        "MKD",
-        "MDA",
-        "LTU",
-        "LVA",
-        "BIH",
-      ];
+            // Load the GeoJSON data for countries
+            map.data.loadGeoJson("data/countries.geo.json"); // Adjust the path to your GeoJSON file
 
-      function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 44.4268, lng: 26.1025 }, // Center of the map
-          zoom: 5, // Global view
-        });
+            // Style the GeoJSON layer
+            map.data.setStyle((feature) => {
+              const countryId = feature.getId();
+              if (countries_base.includes(countryId)) {
+                return {
+                  strokeWeight: 0.5, // Border weight
+                  strokeColor: "black", // Border color
+                  fillOpacity: 0, // No fill opacity initially
+                };
+              } else {
+                // Grey color for countries not in the array
+                return {
+                  strokeWeight: 0.5,
+                  strokeColor: "black",
+                  fillColor: "rgb(67, 69, 69)",
+                  fillOpacity: 0.7, // Fill opacity for grey countries
+                };
+              }
+            });
 
-        // Load the GeoJSON data for countries
-        map.data.loadGeoJson("data/countries.geo.json"); // Adjust the path to your GeoJSON file
+            // Variable to hold the current highlighted country feature
+            let currentFeature = null;
 
-        // Style the GeoJSON layer
-        map.data.setStyle((feature) => {
-          const countryId = feature.getId();
-          if (countries_base.includes(countryId)) {
-            return {
-              strokeWeight: 0.5, // Border weight
-              strokeColor: "black", // Border color
-              fillOpacity: 0, // No fill opacity initially
-            };
-          } else {
-            // Grey color for countries not in the array
-            return {
-              strokeWeight: 0.5,
-              strokeColor: "black",
-              fillColor: "rgb(67, 69, 69)",
-              fillOpacity: 0.7, // Fill opacity for grey countries
-            };
-          }
-        });
+            // Event listener for click on country features
+            map.data.addListener("click", function (event) {
+              const countryId = event.feature.getId();
+              if (countries_base.includes(countryId)) {
+                /*if (currentFeature) {
+                  // Reset the previously highlighted feature
+                  map.data.overrideStyle(currentFeature, {
+                    fillOpacity: 0, // Reset opacity
+                  });
+                }*/
+                currentFeature = event.feature; // Update the current feature
+                updateHighlightColor(currentFeature); // Highlight the country
+              }
+            });
 
-        // Variable to hold the current highlighted country feature
-        let currentFeature = null;
-
-        // Event listener for click on country features
-        map.data.addListener("click", function (event) {
-          const countryId = event.feature.getId();
-          if (countries_base.includes(countryId)) {
-            /*if (currentFeature) {
-              // Reset the previously highlighted feature
-              map.data.overrideStyle(currentFeature, {
-                fillOpacity: 0, // Reset opacity
+            // Function to update highlight color based on the slider value
+            function updateHighlightColor(feature) {
+              const highlightColor =
+                "rgb(10,15," +
+                document.getElementById("highlightColorblue").value +
+                ")"; // Get the current color from the input
+              map.data.overrideStyle(feature, {
+                fillColor: highlightColor, // Highlight color for Romania
+                fillOpacity: 0.8, // Slightly transparent to see the borders
               });
-            }*/
-            currentFeature = event.feature; // Update the current feature
-            updateHighlightColor(currentFeature); // Highlight the country
-          }
-        });
-
-        // Function to update highlight color based on the slider value
-        function updateHighlightColor(feature) {
-          const highlightColor =
-            "rgb(10,15," +
-            document.getElementById("highlightColorblue").value +
-            ")"; // Get the current color from the input
-          map.data.overrideStyle(feature, {
-            fillColor: highlightColor, // Highlight color for Romania
-            fillOpacity: 0.8, // Slightly transparent to see the borders
-          });
-        }
-
-        // Event listener for slider input changes
-        document
-          .getElementById("highlightColorblue")
-          .addEventListener("input", function () {
-            if (currentFeature) {
-              updateHighlightColor(currentFeature); // Update color of the currently highlighted country
             }
-          });
 
-        /*const highlightCountry = "ROU";
-        map.data.addListener("addfeature", function (event) {
-          if (event.feature.getId() === highlightCountry) {
-            updateHighlightColor(event.feature);
+            // Event listener for slider input changes
+            document
+              .getElementById("highlightColorblue")
+              .addEventListener("input", function () {
+                if (currentFeature) {
+                  updateHighlightColor(currentFeature); // Update color of the currently highlighted country
+                }
+              });
           }
-        });
-        function updateHighlightColor(feature) {
-          const highlightColor =
-            "rgb(10,15," +
-            document.getElementById("highlightColorblue").value +
-            ")"; // Get the current color from the input
-          map.data.overrideStyle(feature, {
-            fillColor: highlightColor, // Highlight color for Romania
-            fillOpacity: 0.8, // Slightly transparent to see the borders
-          });
-        }
+        </script>
+      </div>
+    </div>
 
-        document
-          .getElementById("highlightColorblue")
-          .addEventListener("input", function () {
-            // Find the feature again, assuming it was already added
-            const feature = map.data.getFeatureById(highlightCountry);
-            if (feature) {
-              updateHighlightColor(feature); // Update the highlight color on slider change
-            }
-          });*/
-      }
-    </script>
+    <div class="footer">Lábléc</div>
   </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
 </html>
