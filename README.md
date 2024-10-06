@@ -1,6 +1,7 @@
 # NASA Space Apps Challenge - NMiMi
 
 **Challenge Title**: [Community Mapping ](https://www.spaceappschallenge.org/nasa-space-apps-2024/challenges/community-mapping/) 
+
 **Description**: Using a combination of sociodemographic and satellite data to solve problems in our community.
 
 ## Table of Contents
