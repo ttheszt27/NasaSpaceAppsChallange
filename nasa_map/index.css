@@ -1,62 +1,191 @@
-.logo{
-  background-color: black;
-}
 #map {
-
-height: 100%;
-/* Full height */
-width: 100%;
-/* Full width */
+   height: 100%;
+   /* Full height */
+   width: 100%;
+   /* Full width */
+   border-radius: 10px;
+}
+img{
+   height: 25px;
+}
+#height{
+   height: 75px;
 }
 
+/*SLIDECONTAINER FORMAT*/
+#CO2.slider{
+   width: 100%;
+   color: greenyellow;
+}
+#ValueCO2{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
+#GPEE.slider{
+   width: 100%;
+   color: greenyellow;
+}
+#ValueGPEE{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
+#GTEE.slider{
+   width: 100%;
+   color: greenyellow;
+}
+#ValueGTEE{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
+#IM.slider{
+   width: 100%;
+   color: greenyellow;
+}
+#ValueIM{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
+
+#IMR.slider{
+   width: 100%;
+   color: greenyellow;
+}
+#ValueIMR{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
+#LE.slider{
+   width: 100%;
+   color: greenyellow;
+}#ValuePPT{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
+#PPT.slider{
+   width: 100%;
+   color: greenyellow;
+}
+#ValueLE{
+   width: 40px;
+   border: none; /* Removes the border */
+   outline: none; /* Removes the outline when the input is focused */
+}
 
 
 .sidebar {
-height: 100vh; /* Oldalsáv magassága 100% */
-
-background-color: #801212; /* Zöld háttér */
-color: rgb(10, 2, 2); /* Fehér szöveg */
-/* padding: 0px;  Padding a sáv körül */
-/*  position: fixed;  Rögzített pozíció */
+   height: 100vh;
+   /* Oldalsáv magassága 100% */
+    color: #303030;
+   /* Fehér szöveg */
+   /* padding: 0px;  Padding a sáv körül */
+   /*  position: fixed;  Rögzített pozíció */
 }
+
 .grid-container {
-display: grid; /* Grid aktiválása */
-grid-template-columns: 400px 1fr; /* Oldalsáv (200px) és fő tartalom (1 frakció) */
-grid-template-rows: auto 1fr auto; /* Felső sor (fejléc), középső (tartalom), alsó sor (lábléc) */
-gap: 00px; /* Rés a rácselemek között */
-height: 100vh; /* Teljes magasság */
+   display: grid;
+   /* Grid aktiválása */
+   grid-template-columns: 500px 1fr;
+   /* Oldalsáv (200px) és fő tartalom (1 frakció) */
+   grid-template-rows: auto 1fr auto;
+   /* Felső sor (fejléc), középső (tartalom), alsó sor (lábléc) */
+   gap: 00px;
+   /* Rés a rácselemek között */
+   height: 100vh;
+   /* Teljes magasság */
 }
 
 
 .header {
-grid-column: 1 / 3; /* Kiterjed a teljes szélességre */
-background-color: lightgray;
-padding: 10px;
-text-align: center;  
-display: flex; /* Flexbox aktiválása a fejlécben */
-justify-content: space-between; /* Elek szélekre igazítása */
-
+   grid-column: 1 / 3;
+   /* Kiterjed a teljes szélességre */
+   background-color: white;
+   text-align: center;
+   padding: 5px;
+ 
+   justify-content: space-between;
+   /* Elek szélekre igazítása */
+   align-items: center;
+   /* Vertically center align text */
+   padding-left: 25px;
+   padding-right: 25px;
+   
 }
 
+
+
 .sidebar {
-background-color: lightcoral;
-padding: 10px;
+   background-color: white;
+   padding: 10px;
+   margin: 10px;
+
+}
+.slidecontainer{
+   background-color: white;
+   display: flow;
+   border-radius: 10px;
+   padding: 10px;
+   box-shadow: 
+   5px 5px 10px rgba(78, 75, 75, 0.15),  /* Bottom-right shadow */
+   -5px 5px 10px rgba(78, 75, 75, 0.15), /* Bottom-left shadow */
+   5px 0 10px rgba(78, 75, 75, 0.15);    /* Right shadow */
+    
+
+}
+.slidecontainercontainer{
+   margin-bottom: 10px;
+   margin-top: 10px;
+}
+
+.slidecontainercontainer a{
+   margin-bottom: 30px;
+   font-size: 20px;
+}
+.input_field{
+   width: 66px;
+   margin-bottom: 30PX;
+   display: flex;
+   justify-items: center;
+  
+}
+
+.sidebar ul {
+   list-style-type: none;
+   /* Szimbólumok eltávolítása */
+   padding: 0;
+   /* Belső margó eltávolítása */
+   margin: 0;
+   /* Külső margó eltávolítása */
+}
+
+a {
+   padding: 5px;
+   /* Opcióként a listaelemekhez paddingot adhatsz */
+   text-decoration: none;
+   /* Aláhúzás eltávolítása */
+   color: inherit;
+   /* Szín öröklése a szülő elemtől */
+   cursor: default;
+   /* Az egérkurzor normalizálása */
 }
 
 .main {
-background-color: lightgreen;
-padding: 10px;
+   padding: 10px;
+  
 }
 
-.footer {
-grid-column: 1 / 3; /* Kiterjed a teljes szélességre */
-background-color: lightblue;
-padding: 10px;
-text-align: center;}
-
 .inline-container {
-   display: flex; /* Enable Flexbox for inline items */
+   display: flex;
+   /* Enable Flexbox for inline items */
 }
 
 .inline-item {
-   margin: 0 60px; /* Space between inline items */}
+   margin: 0 60px;
+
+   /* Space between inline items */
+}
